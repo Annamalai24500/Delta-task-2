@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation using rapi</title>
+    <style>
+    body {
+    background-color: black;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: auto;
+  }
+  .opacityadd{
+    opacity:0.7;
+  }
+  canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200vw;
+    height: 200vh;
+  }
+  #pause,#reset,#resume{
+    display:inline-block;
+    z-index:2;
+    position: fixed;
+    bottom:10px;
+    left:500px;
+    width:100px;
+    height: 50px;
+    background-color:#0c0cd8e6;
+    color:black;
+    border:1px solid;
+    
+  }
+  #reset{left:620px;}
+  #resume{left:740px;}
+  #pl,#sys,#keys,#shards,#highscore{
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    display:inline;
+    position:fixed;
+    color:blue;
+    top:0px;
+    z-index:2;
+
+  }
+  #pl{top:0px;}
+  #sys{top:20px;}
+  #keys{top:40px;}
+  #shards{top:60px;}
+  #highscore{top:80px;}
+  .rotate{
+    transform:translate(0px,0px);
+    transform:rotate(20deg);
+    transition-property: transform;
+    transition-duration: infinite;
+    transition-timing-function: linear;
+  }
+  .disabled{
+    pointer-events: none;
+  }
+  .gameover{
+    display:flex;
+    position:fixed;
+    background-color: aliceblue;
+    width:200px;
+    height:200px;
+    font-size: larger;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 600;
+    z-index:3;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top:50%;
+    left:50%;
+  }
+  
+    </style>
+    
+</head>
+<body>
+    <div style="overflow: scroll;">
+        <canvas></canvas>
+    </div>
+    <div id="pl">
+        Player Health:
+    </div>
+    <div id="sys">System Health:</div>
+    <div id="keys">Keys:</div>
+    <div id="shards">Shards Delivered:</div>
+    <div id="highscore">High Score:</div>
+    <div id="gameover"></div>
+    <button id="pause" type="button">Pause</button>
+    <button id ="reset" type="button">Reset</button>
+    <button id="resume" type="button">Resume</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>
